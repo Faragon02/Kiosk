@@ -1,5 +1,7 @@
 package kiosk.Level5lv1.kiosk.workOder;
 
+import jdk.jfr.Category;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ public class Menu {
     private List<MenuItem> menuItemListBuger;
     private List<MenuItem> menuItemListDrink;
     private List<MenuItem> menuItemListDesert;
+    private List<MenuItem> shoppingCart;
 
 
     public Menu() {
@@ -18,6 +21,7 @@ public class Menu {
         menuItemListBuger = new ArrayList<>();
         menuItemListDrink = new ArrayList<>();
         menuItemListDesert = new ArrayList<>();
+        shoppingCart = new ArrayList<>();
     }
 
     //set
@@ -53,44 +57,41 @@ public class Menu {
             i++;
         }
     }
-    public void getItemListBuger(){
-        for(MenuItem item :menuItemListBuger)
+    public  void  getItemList(int categoryNum){
+        List<MenuItem> tmepItemList;
+
+         if(categoryNum  ==1 )
+         {
+             tmepItemList = menuItemListBuger;
+         }
+         else if(categoryNum ==2)
+         {
+             tmepItemList = menuItemListDrink;
+         }
+         else {
+             tmepItemList = menuItemListDesert;
+         }
+
+        for(MenuItem item :tmepItemList)
         {
             if(item.getName() == "Back")
             {
                 System.out.println(item.getNumber() + "."  + item.getName());
             }
             else {
-                System.out.println(String.format("%d. %s |%.1f| %s", item.getNumber(), item.getName(), (double)item.getPrice() / 1000, item.getInfo()));
+                System.out.println(String.format("%d. %s |%.1f| %s", item.getNumber(),item.getName(), (double)item.getPrice() /1000, item.getInfo()));
             }
 
         }
+
     }
-    public void getItemListDrink(){
-        for(MenuItem item :menuItemListDrink)
-        {
-            if(item.getName() == "Back")
-            {
-                System.out.println(item.getNumber() + "."  + item.getName());
-            }
-            else {
-                System.out.println(String.format("%d. %s |%.1f| %s", item.getNumber(), item.getName(), (double)item.getPrice() / 1000, item.getInfo()));
-            }
-
-
-        }
+    public List<MenuItem>getItemListBuger(){
+        return menuItemListBuger;
     }
-    public void getItemListDesert(){
-        for(MenuItem item :menuItemListDesert)
-        {
-            if(item.getName() == "Back")
-            {
-                System.out.println(item.getNumber() + "."  + item.getName());
-            }
-            else {
-            System.out.println(String.format("%d. %s |%.1f| %s", item.getNumber(),item.getName(), (double)item.getPrice() /1000, item.getInfo()));
-            }
-
-        }
+    public List<MenuItem>getItemListDrink(){
+       return menuItemListDrink;
+    }
+    public List<MenuItem> getItemListDesert(){
+       return menuItemListDesert;
     }
 }

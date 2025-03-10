@@ -15,15 +15,20 @@ public class Kiosk {
 
         int intInput;
         String command;
-        int step  = 0;
         boolean start  = true;
         while (start)
         {
-            command = "카테고리를 선택하세요";
+
+
             System.out.println("======[Menu]=====");
             menu.getCategoryName();
+
+
+            command = "카테고리를 선택하세요";
             intInput = inputCheck.checkInt(command, scanner);
             if(intInput > 0) {
+
+
                 switch (intInput) {
                     case 1:
 
@@ -47,12 +52,26 @@ public class Kiosk {
                         System.out.println(command);
                         break;
                 }
-
-                command = "메뉴를 선택헤주세요";
+                command = "선택해주세요.";
                 intInput = inputCheck.checkInt(command, scanner);
                 if(intInput == 0){
                     continue;
                 }
+
+
+                command = "장바구니에 추가 하겠습니까?";
+                intInput = inputCheck.checkInt(command, scanner);
+                if(intInput == 1)
+                {
+
+
+                }else if(intInput == 2) {
+
+                }
+                else {
+
+                }
+
 
             }else
             {
