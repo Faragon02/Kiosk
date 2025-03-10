@@ -41,6 +41,11 @@ public class Menu {
     public void setMenuItemListDesertList(MenuItem item){
         menuItemListDesert.add(item);
     }
+    public void setAddShoppingCart(MenuItem item){
+        shoppingCart.add(item);
+        System.out.println(item.getName() + "이 장바구니에 추가 되었습니다.");
+    }
+
     //get
     public void getCategoryName(){
        int i =0;
@@ -60,15 +65,22 @@ public class Menu {
     public  void  getItemList(int categoryNum){
         List<MenuItem> tmepItemList;
 
+         if(categoryNum >3) {
+             System.out.println("지원되지 않는 기능입니다.");
+         }
+
          if(categoryNum  ==1 )
          {
+             System.out.println("======[Buger Menu]=====");
              tmepItemList = menuItemListBuger;
          }
          else if(categoryNum ==2)
          {
+             System.out.println("======[Drink Menu]=====");
              tmepItemList = menuItemListDrink;
          }
          else {
+             System.out.println("======[Desert Menu]=====");
              tmepItemList = menuItemListDesert;
          }
 
@@ -94,4 +106,5 @@ public class Menu {
     public List<MenuItem> getItemListDesert(){
        return menuItemListDesert;
     }
+
 }

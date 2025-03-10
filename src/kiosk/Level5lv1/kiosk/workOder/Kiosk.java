@@ -2,6 +2,7 @@ package kiosk.Level5lv1.kiosk.workOder;
 
 import kiosk.Level5lv1.kiosk.io.InputCheck;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Kiosk {
@@ -18,8 +19,6 @@ public class Kiosk {
         boolean start  = true;
         while (start)
         {
-
-
             System.out.println("======[Menu]=====");
             menu.getCategoryName();
 
@@ -27,57 +26,50 @@ public class Kiosk {
             command = "카테고리를 선택하세요";
             intInput = inputCheck.checkInt(command, scanner);
             if(intInput > 0) {
+                MenuItem item = null;
+                menu.getItemList( intInput);
 
 
-                switch (intInput) {
-                    case 1:
-
-                        //햄버거
-                        System.out.println("======[Buger Menu]=====");
-                        menu.getItemListBuger();
-                        break;
-                    case 2:
-                        // 음료
-                        System.out.println("======[Drink Menu]=====");
-                        menu.getItemListDrink();
-                        break;
-                    case 3:
-                        //디저트
-                        System.out.println("======[Desert Menu]=====");
-                        menu.getItemListDesert();
-                        break;
-
-                    default:
-                        command = "지원되지 않는 기능입니다.";
-                        System.out.println(command);
-                        break;
-                }
                 command = "선택해주세요.";
                 intInput = inputCheck.checkInt(command, scanner);
+                switch (intInput)
+                {
+                    case 1:
+                        item= menu.getItemListBuger().get(intInput);
+                        break;
+                    case 2:
+                        item = menu.getItemListDesert().get(intInput);
+                        break;
+                    case 3:
+                        item = menu.getItemListDesert().get(intInput);
+                        break;
+                }
                 if(intInput == 0){
                     continue;
                 }
-
-
-                command = "장바구니에 추가 하겠습니까?";
+                System.out.println(String.format("선택한 메뉴: %s |%.1f| %s", item.getName(), (double)item.getPrice() /1000, item.getInfo()));
+                System.out.println();
+                System.out.println("장바구니에 추가 하겠습니까?");
+                command = "1.확인            2.취소";
                 intInput = inputCheck.checkInt(command, scanner);
+
                 if(intInput == 1)
                 {
-
+                    menu.setAddShoppingCart(item);
 
                 }else if(intInput == 2) {
-
+                    continue;
                 }
                 else {
-
+                    System.out.println("보기에 없는 기능입니다.");
                 }
-
-
             }else
             {
                 System.out.println("프로그램 종료");
                 start = false;
             }
         }
+        scanner.close();
     }
+
 }
