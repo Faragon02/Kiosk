@@ -1,4 +1,4 @@
-package kiosk.Level5lv1.kiosk.io;
+package kiosk.level5part1.kiosk.io;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

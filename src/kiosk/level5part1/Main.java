@@ -1,8 +1,8 @@
-package kiosk.Level5lv1;
+package kiosk.level5part1;
 
-import kiosk.Level5lv1.kiosk.workOder.Kiosk;
-import kiosk.Level5lv1.kiosk.workOder.Menu;
-import kiosk.Level5lv1.kiosk.workOder.MenuItem;
+import kiosk.level5part1.kiosk.workOder.Kiosk;
+import kiosk.level5part1.kiosk.workOder.Menu;
+import kiosk.level5part1.kiosk.workOder.MenuItem;
 
 public class Main {
     public static void setCategory(Menu menu){

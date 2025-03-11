@@ -1,6 +1,4 @@
-package kiosk.Level5lv1.kiosk.workOder;
-
-import jdk.jfr.Category;
+package kiosk.level5part1.kiosk.workOder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +41,7 @@ public class Menu {
     }
     public void setAddShoppingCart(MenuItem item){
         shoppingCart.add(item);
-        System.out.println(item.getName() + "이 장바구니에 추가 되었습니다.");
+
     }
 
     //get
@@ -91,7 +89,7 @@ public class Menu {
                 System.out.println(item.getNumber() + "."  + item.getName());
             }
             else {
-                System.out.println(String.format("%d. %s |%.1f| %s", item.getNumber(),item.getName(), (double)item.getPrice() /1000, item.getInfo()));
+                System.out.println(String.format("%d. %s | w %.1f| %s", item.getNumber(),item.getName(), (double)item.getPrice() /1000, item.getInfo()));
             }
 
         }
@@ -106,5 +104,14 @@ public class Menu {
     public List<MenuItem> getItemListDesert(){
        return menuItemListDesert;
     }
+    public void getAddShoppingCart(MenuItem item){
+        //정상적으로 추가 되었을때.
+        if(shoppingCart.contains(item) == true) {
+            System.out.println(String.format("%s가 장바구니에 추가되었습니다. 금액은 %d", item.getName(), item.getPrice()));
+        }
+        else {
+            System.out.println("추가되어 있지 않는 메뉴입니다.");
+        }
 
+    }
 }
