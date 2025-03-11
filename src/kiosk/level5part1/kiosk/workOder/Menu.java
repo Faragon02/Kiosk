@@ -5,21 +5,21 @@ import java.util.List;
 
 
 public class Menu {
-    //private  MenuItem menuItem;
+    //속성
+    private int maxMenuListSize;
     private List<String> categoryItemList;
     private List<MenuItem> menuItemListBuger;
     private List<MenuItem> menuItemListDrink;
     private List<MenuItem> menuItemListDesert;
-    private List<MenuItem> shoppingCart;
 
 
+    //생성자
     public Menu() {
 
         categoryItemList = new ArrayList<>();
         menuItemListBuger = new ArrayList<>();
         menuItemListDrink = new ArrayList<>();
         menuItemListDesert = new ArrayList<>();
-        shoppingCart = new ArrayList<>();
     }
 
     //set
@@ -39,10 +39,7 @@ public class Menu {
     public void setMenuItemListDesertList(MenuItem item){
         menuItemListDesert.add(item);
     }
-    public void setAddShoppingCart(MenuItem item){
-        shoppingCart.add(item);
 
-    }
 
     //get
     public void getCategoryName(){
@@ -60,7 +57,7 @@ public class Menu {
             i++;
         }
     }
-    public  void  getItemList(int categoryNum){
+    public  void  getItemShowList(int categoryNum){
         List<MenuItem> tmepItemList;
 
          if(categoryNum >3) {
@@ -81,7 +78,7 @@ public class Menu {
              System.out.println("======[Desert Menu]=====");
              tmepItemList = menuItemListDesert;
          }
-
+        maxMenuListSize = tmepItemList.size();
         for(MenuItem item :tmepItemList)
         {
             if(item.getName() == "Back")
@@ -95,23 +92,25 @@ public class Menu {
         }
 
     }
-    public List<MenuItem>getItemListBuger(){
-        return menuItemListBuger;
-    }
-    public List<MenuItem>getItemListDrink(){
-       return menuItemListDrink;
-    }
-    public List<MenuItem> getItemListDesert(){
-       return menuItemListDesert;
-    }
-    public void getAddShoppingCart(MenuItem item){
-        //정상적으로 추가 되었을때.
-        if(shoppingCart.contains(item) == true) {
-            System.out.println(String.format("%s가 장바구니에 추가되었습니다. 금액은 %d", item.getName(), item.getPrice()));
+
+    public  List<MenuItem> getItemList(int SelectNum){
+        List<MenuItem> tmepItemList;
+
+        if(SelectNum  ==1 )
+        {
+            tmepItemList = menuItemListBuger;
+        }
+        else if(SelectNum ==2)
+        {
+            tmepItemList = menuItemListDrink;
         }
         else {
-            System.out.println("추가되어 있지 않는 메뉴입니다.");
+            tmepItemList = menuItemListDesert;
         }
 
+        return tmepItemList;
+    }
+    public  int getListMaxSize(){
+        return maxMenuListSize;
     }
 }

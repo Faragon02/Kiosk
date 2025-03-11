@@ -5,7 +5,9 @@ import kiosk.level5part1.kiosk.workOder.Menu;
 import kiosk.level5part1.kiosk.workOder.MenuItem;
 
 public class Main {
-    public static void setCategory(Menu menu){
+    public static void main(String[] args) {
+        Menu menu = new Menu();
+
         String[] item = {
                 "Burgers",
                 "Drinks",
@@ -13,9 +15,7 @@ public class Main {
                 "종료"
         };
         menu.setCategoryItemList(item);
-    }
 
-    public static void setMenuList(Menu menu) {
         menu.setmenuItemListBugerList(new MenuItem(1, "ShackBurger", 6900, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
         menu.setmenuItemListBugerList(new MenuItem(2, "SmokeShak", 8900,  "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"));
         menu.setmenuItemListBugerList(new MenuItem(3, "CheeseBuger", 6900, "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거"));
@@ -31,12 +31,6 @@ public class Main {
         menu.setMenuItemListDesertList(new MenuItem(1, "French frise", 1500, "감자 튀김"));
         menu.setMenuItemListDesertList(new MenuItem(2, "IceCream", 1700,  "소프트 아이스크림"));
         menu.setMenuItemListDesertList(new MenuItem(0, "Back", 0, ""));
-    }
-
-    public static void main(String[] args) {
-        Menu menu = new Menu();
-        setCategory(menu);
-        setMenuList(menu);
 
         Kiosk kiosk = new Kiosk();
         kiosk.Start(menu);
