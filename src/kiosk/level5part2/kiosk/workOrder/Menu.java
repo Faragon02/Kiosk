@@ -1,4 +1,4 @@
-package kiosk.level5part1.kiosk.workOder;
+package kiosk.level5part2.kiosk.workOrder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +59,11 @@ public class Menu {
     }
     public  void  getItemShowList(int categoryNum){
         List<MenuItem> tmepItemList;
+
+         if(categoryNum >3) {
+             System.out.println("지원되지 않는 기능입니다.");
+         }
+
          if(categoryNum  ==1 )
          {
              System.out.println("======[Buger Menu]=====");
@@ -109,4 +114,17 @@ public class Menu {
         return maxMenuListSize;
     }
 
+    public MenuItem itemCheck(int intMenuInput, int intMenuItemInput)
+    {
+        MenuItem retrunItem = null;
+        for(MenuItem item: getItemList(intMenuInput))
+        {
+            if(item.getNumber() == intMenuItemInput)
+            {
+                retrunItem =  item;
+                break;
+            }
+        }
+        return retrunItem;
+    }
 }
