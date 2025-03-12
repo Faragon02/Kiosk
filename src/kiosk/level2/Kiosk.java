@@ -1,9 +1,8 @@
 package kiosk.level2;
 
-import kiosk.level2.io.InputCheck;
-import kiosk.level2.workOder.MenuItem;
+import kiosk.level2.util.InputCheck;
+import kiosk.level2.menu.MenuItem;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

@@ -1,10 +1,7 @@
-package kiosk.level4.kiosk.workOder;
-import kiosk.level4.kiosk.workOder.MenuItem;
+package kiosk.level4.kiosk.menu;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class Menu {

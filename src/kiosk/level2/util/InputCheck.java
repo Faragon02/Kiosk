@@ -1,10 +1,10 @@
-package kiosk.level4.kiosk.io;
+package kiosk.level2.util;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InputCheck {
-   public InputCheck(){}
+    public InputCheck(){}
 
     public double checkDouble(String command, Scanner scanner)
     {

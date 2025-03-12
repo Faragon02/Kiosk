@@ -1,7 +1,5 @@
 package kiosk.level1;
 
-import kiosk.level2.io.InputCheck;
-
 import java.util.ArrayList;
 import java.util.List;
 

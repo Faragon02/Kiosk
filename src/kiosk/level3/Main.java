@@ -1,10 +1,9 @@
 package kiosk.level3;
 
-import kiosk.level3.kiosk.workOder.MenuItem;
-import kiosk.level3.kiosk.io.InputCheck;
+import kiosk.level3.kiosk.menu.MenuItem;
+import kiosk.level3.kiosk.util.InputCheck;
 import kiosk.level3.kiosk.Kiosk;
 
-import java.util.List;
 import java.util.Scanner;
 
 

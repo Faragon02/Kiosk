@@ -1,6 +1,7 @@
-package kiosk.level4.kiosk.workOder;
+package kiosk.level4.kiosk;
 
-import kiosk.level4.kiosk.io.InputCheck;
+import kiosk.level4.kiosk.menu.Menu;
+import kiosk.level4.kiosk.util.InputCheck;
 
 import java.util.Scanner;
 

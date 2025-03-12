@@ -1,8 +1,7 @@
 package kiosk.level4.kiosk;
 
-import kiosk.level4.kiosk.workOder.Kiosk;
-import kiosk.level4.kiosk.workOder.Menu;
-import kiosk.level4.kiosk.workOder.MenuItem;
+import kiosk.level4.kiosk.menu.Menu;
+import kiosk.level4.kiosk.menu.MenuItem;
 
 public class Main {
 

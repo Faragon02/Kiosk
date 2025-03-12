@@ -1,4 +1,4 @@
-package kiosk.level3.kiosk.workOder;
+package kiosk.level2.menu;
 
 public class MenuItem {
     private  String Category;
