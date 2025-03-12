@@ -79,17 +79,22 @@ public class Kiosk {
                 maxMenu = menu.getCategoryNum();
             }
         }
-
         String command = "선택해 주세요:";
         intInput = ValidationCheck.checkCommentInt(command, scanner);
+
         for (Menu menu : menus) {
             if (menu.getCategoryNum() == intInput) {
                 if (menu.getCategoryNum() == 0) {
+
                     step = ConstNumber.toClose;
-                } else if (menu.getCategoryNum() > 0 && menu.getCategoryNum() <= maxMenu) {
+
+                } else if (menu.getCategoryNum() <= maxMenu) {
+
                     tempMenu = menu;
                     step = ConstNumber.toMenuBoard;
+
                 } else {
+
                     System.out.println("다시 선택해 주세요.");
                     step = ConstNumber.toMenu;
                 }
@@ -100,7 +105,6 @@ public class Kiosk {
     }
 
     private int printMenuList() {
-
         int step = 0;
         int intInput = 0;
         String command = "";
@@ -112,8 +116,10 @@ public class Kiosk {
         tempItem = tempMenu.itemCheck(intInput);
         if (tempItem == null) {
             System.out.println("존재하지 않는 메뉴 입니다. 다시 선택해 주세요.");
-            step = ConstNumber.toMenuBoard;
-        } else if (Integer.valueOf(0).equals(tempItem.getNumber())) {
+            return ConstNumber.toMenuBoard;
+        }
+
+        if (Integer.valueOf(0).equals(tempItem.getNumber())) {
             //Back
             step = ConstNumber.toMenu;
         } else if (tempItem.getNumber() <= tempMenu.getMaxItemNum()) {
@@ -129,11 +135,12 @@ public class Kiosk {
                 step = ConstNumber.toMenuBoard;
             }
         }
-        return step;
+        return  step;
     }
 
     private int orderMenu() {
         int intInput = 0;
+        int step =0;
         System.out.println("[=======Order Menu=======]");
         command = "4.Orders | 장바구니를 확인 후 주문합니다.\n" +
                 "5.Cancel |  진행중인 주문을 취소 합니다.";
@@ -145,23 +152,23 @@ public class Kiosk {
             cart.getOrderList();
             command = "1.주문        2.메뉴판        3.삭제";
            intInput = ValidationCheck.checkCommentInt(command, scanner);
-            if (intInput == 1) {
-                //프로그램 종료
-                return cart.selectDiscount(command, scanner);
+           switch (intInput)
+           {
+               case 1 :
+                  step = cart.selectDiscount(command, scanner);
+                  break;
+               case 2:
+                   step =ConstNumber.toMenuBoard;
+                   break;
+               case 3:
+                   step = cart.deleteCartItem(command, scanner);
+                   break;
+               default:
+                   System.out.println("보기에 없는 기능입니다.");
+                   step =  ConstNumber.toOrder;
 
-            } else if ( intInput ==2) {
-
-                return  ConstNumber.toMenuBoard;
-            } else if (intInput == 3) {
-
-                return cart.deleteCartItem(command, scanner);
-            }
-            else {
-                //현재스텝 재시작
-                System.out.println("보기에 없는 기능입니다.");
-                return ConstNumber.toOrder;
-            }
-
+           }
+            return  step;
         }
         else if (intInput == 5) {
             System.out.println("주문이 취소 되었습니다.");

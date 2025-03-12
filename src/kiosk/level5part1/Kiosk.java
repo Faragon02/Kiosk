@@ -88,16 +88,18 @@ public class Kiosk {
         intInput = ValidationCheck.checkCommentInt(command, scanner);
         for (Menu menu : menus) {
             if (menu.getCategoryNum() == intInput) {
-                if (menu.getCategoryNum() == 0) {
-                    step = 0;
-                } else if (menu.getCategoryNum() > 0 && menu.getCategoryNum() <= maxMenu) {
 
+                if (menu.getCategoryNum() == 0) {
+                    step = toClose;
+
+                } else if (menu.getCategoryNum() <= maxMenu) {
+                    tempMenu = menu;
                     step = toMenuBoard;
                 } else {
                     System.out.println("다시 선택해 주세요.");
                     step = toMenu;
                 }
-                tempMenu = menu;
+
                 break;
             }
         }
@@ -105,20 +107,24 @@ public class Kiosk {
     }
 
     private int printMenuList() {
-
-        System.out.println(String.format("======[ %s Menu]=====", tempMenu.getCategoryName()));
         int step = 0;
         int intInput = 0;
         String command = "";
 
+        System.out.println(String.format("======[ %s Menu]=====", tempMenu.getCategoryName()));
         tempMenu.getShowList();
         command = "선택해 주세요:";
         intInput = ValidationCheck.checkCommentInt(command, scanner);
         tempItem = tempMenu.itemCheck(intInput);
-        if (tempItem == null || tempItem.getNumber() == 0) {
+        if(tempItem == null ){
+            System.out.println("존재하지 않는 메뉴 입니다. 다시 선택해 주세요.");
+            step =toMenuBoard;
+        }
+
+        if (tempItem.getNumber() == 0) {
             //Back
             step =toClose;
-        } else if (tempItem.getNumber() > 0 && tempItem.getNumber() <= tempMenu.getMaxItemNum()) {
+        } else if ( tempItem.getNumber() <= tempMenu.getMaxItemNum()) {
              command = "개수를 입력해 주세요:\n" +
                        "개수 입력(0이상)      2.취소";
              intInput = ValidationCheck.checkCommentInt(command, scanner);
@@ -130,22 +136,21 @@ public class Kiosk {
              else{
                  step = toMenuBoard;
              }
-        } else {
-            System.out.println("존재하지 않는 메뉴 입니다. 다시 선택해 주세요.");
-            step =toMenuBoard;
         }
-
         return step;
     }
 
     private int orderMenu() {
         int intInput = 0;
+
+        System.out.println("[=======Order Menu=======]");
         command = "4.Orders | 장바구니를 확인 후 주문합니다.\n" +
                 "5.Cancel |  진행중인 주문을 취소 합니다.";
         intInput = ValidationCheck.checkCommentInt(command, scanner);
         if (intInput == 4) {
+            System.out.println("[=======Order=======]");
             System.out.println("아래와 주문 하겠습니까?");
-            System.out.println("[Orders]        [Total]  [합계]");
+            System.out.println("[Orders]            [Total]  [합계]");
             cart.getOrderList();
             command = "1.주문        2.메뉴판";
             intInput = ValidationCheck.checkCommentInt(command, scanner);
@@ -161,7 +166,9 @@ public class Kiosk {
             }
         } else if (intInput == 5) {
             //주문
+            System.out.println("주문이 취소 되었습니다.");
             return toMenu;
+
         } else {
             //현재스텝 재시작
             System.out.println("보기에 없는 기능입니다.");

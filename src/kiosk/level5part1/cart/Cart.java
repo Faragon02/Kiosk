@@ -20,7 +20,7 @@ public class Cart {
     public void getOrderList(){
         for(Item item : shoppingCart)
         {
-            System.out.println( String.format("%s      %.1f   %d",item.getName(), item.getPrice(), item.getCount()));
+            System.out.println( String.format("%-15s      %3.1f   %5d",item.getName(), item.getPrice(), item.getCount()));
         }
     }
     public int getTotal() {
