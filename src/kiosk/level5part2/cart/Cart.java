@@ -1,6 +1,6 @@
-package kiosk.level5part1.cart;
+package kiosk.level5part2.cart;
 
-import kiosk.level5part1.menu.Item;
+import kiosk.level5part2.menu.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +23,13 @@ public class Cart {
             System.out.println( String.format("%s      %.1f   %d",item.getName(), item.getPrice(), item.getCount()));
         }
     }
+    public void  getDiscountShow(){
+
+        for(Discount type : Discount.values()){
+            System.out.println(String.format("%d. %s       %d %", type.getDiscountNumber(), type.getDiscontName(), (int)type.getDiscountRate() * 10));
+        }
+    }
+
     public int getTotal() {
       double total = 0;
         if (!shoppingCart.isEmpty()) {

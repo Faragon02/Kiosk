@@ -1,9 +1,9 @@
-package kiosk.level5part1;
+package kiosk.level5part2;
 
-import kiosk.level5part1.cart.Cart;
-import kiosk.level5part1.menu.Menu;
-import kiosk.level5part1.menu.Item;
-import kiosk.level5part1.util.ValidationCheck;
+import kiosk.level5part2.cart.Cart;
+import kiosk.level5part2.menu.Item;
+import kiosk.level5part2.menu.Menu;
+import kiosk.level5part2.util.ValidationCheck;
 
 import java.util.List;
 import java.util.Scanner;
