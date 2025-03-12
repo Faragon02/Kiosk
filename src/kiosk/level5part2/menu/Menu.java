@@ -41,11 +41,9 @@ public class Menu implements ItemList {
 
         for(Item item : Items)
         {
-
             if(item.getNumber() == findNum)
             {
                 tempItem =item;
-
                 break;
             }
         }
