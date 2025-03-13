@@ -63,7 +63,7 @@ public class Kiosk {
 
             }else
             {
-                menuList.add(String.format(" %s | W %.1f | %s", itemBuger[i],itemBugerPrice[i], itemBugerInfo[i]));
+                menuList.add(String.format(i+1 + ". %s | W %.1f | %s", itemBuger[i],itemBugerPrice[i], itemBugerInfo[i]));
             }
         }
 
@@ -76,20 +76,18 @@ public class Kiosk {
                System.out.println(menuList.get(i));
             }
             intInput = checkInt(command, scanner);
-            if(intInput >0 && intInput <4 )
-            {
-                System.out.println(menuList.get(intInput -1));
-
-            }else if(intInput == 0)
+            if(intInput == 0)
             {
                 System.out.println("프로그램을 종료합니다.");
                 start = false;
-                break;
-            }
-            else
+            }else if(intInput <4 )
             {
+                System.out.println(menuList.get(intInput -1));
+
+            }else{
                 System.out.println("존재하지 않는 기능입니다.");
             }
         }
+        scanner.close();
     }
 }
