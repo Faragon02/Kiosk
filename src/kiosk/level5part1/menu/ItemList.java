@@ -16,7 +16,4 @@ public interface ItemList {
       List<Item> getItemList();
 
       Item itemCheck(int findNum);
-
-
-
 }

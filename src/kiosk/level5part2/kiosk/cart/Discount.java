@@ -1,4 +1,4 @@
-package kiosk.level5part2.cart;
+package kiosk.level5part2.kiosk.cart;
 
 public enum Discount {
     NationalMerit(1, 0.1, "국가 유공자"),

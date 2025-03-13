@@ -1,4 +1,4 @@
-package kiosk.level5part2.util;
+package kiosk.level5part2.kiosk.util;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -14,7 +14,7 @@ public class ValidationCheck {
                 return  tempInput;
             }
             catch (InputMismatchException ex) {
-                System.out.println("[Exception] 숫자를 입력하세요");
+                System.out.println("보기에 없는 입력입니다. 다시 입력 해주세요.");
                 scanner.nextLine();
             }
         }
