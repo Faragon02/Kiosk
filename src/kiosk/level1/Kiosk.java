@@ -9,6 +9,11 @@ import java.util.InputMismatchException;
 
 public class Kiosk {
 
+
+    /*
+    * return 입력한 값이 정상적인 Command 숫자인지 확인하는 함수입니ㅏ.
+    *
+    * */
     static  int checkInt(String command, Scanner scanner)
     {
         int tempInput;
@@ -28,7 +33,6 @@ public class Kiosk {
 
     }
     public static void main (String[] args) {
-
 
         Scanner scanner = new Scanner(System.in);
 

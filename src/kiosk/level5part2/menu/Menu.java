@@ -15,7 +15,6 @@ public class Menu implements ItemList {
         this.Items = Items;
     }
 
-
     @Override
     public int getCategoryNum() {
         return categoryNum;

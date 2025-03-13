@@ -1,6 +1,6 @@
 package kiosk.level5part2.cart;
 
-import kiosk.level5part2.ConstNumber;
+import kiosk.level5part2.util.ConstNumber;
 import kiosk.level5part2.menu.Item;
 import kiosk.level5part2.util.ValidationCheck;
 

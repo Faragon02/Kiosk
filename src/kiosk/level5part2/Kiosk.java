@@ -3,6 +3,7 @@ package kiosk.level5part2;
 import kiosk.level5part2.cart.Cart;
 import kiosk.level5part2.menu.Item;
 import kiosk.level5part2.menu.Menu;
+import kiosk.level5part2.util.ConstNumber;
 import kiosk.level5part2.util.ValidationCheck;
 
 import java.util.List;
@@ -139,7 +140,7 @@ public class Kiosk {
     }
 
     private int orderMenu() {
-        int intInput = 0;
+        int intInput = 0;ㅋㅋㅋ
         int step =0;
         System.out.println("[=======Order Menu=======]");
         command = "4.Orders | 장바구니를 확인 후 주문합니다.\n" +
@@ -166,7 +167,6 @@ public class Kiosk {
                default:
                    System.out.println("보기에 없는 기능입니다.");
                    step =  ConstNumber.toOrder;
-
            }
             return  step;
         }

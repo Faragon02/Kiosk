@@ -1,4 +1,4 @@
-package kiosk.level5part2;
+package kiosk.level5part2.util;
 
 public class ConstNumber {
     public final static int toMenu = 1;
